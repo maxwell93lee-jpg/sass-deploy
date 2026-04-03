@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CloudNote - 내 노트</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-container": "#9bb4fe",
+                        "primary-container": "#0066ff",
+                        "on-primary-container": "#f8f7ff",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c2c6d8",
+                        "on-primary-fixed-variant": "#003fa4",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "secondary": "#425ca0",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#0054d6",
+                        "secondary-fixed": "#dae1ff",
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary-fixed-variant": "#832600",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#390c00",
+                        "background": "#f7f9fb",
+                        "on-tertiary-container": "#fff6f4",
+                        "on-secondary-container": "#294487",
+                        "primary": "#0050cb",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-dim": "#d8dadc",
+                        "surface": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "outline": "#727687",
+                        "tertiary-container": "#cc4204",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#001849",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001849",
+                        "tertiary": "#a33200",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-surface-variant": "#424656",
+                        "secondary-fixed-dim": "#b3c5ff",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#dae1ff",
+                        "on-background": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#284386",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#ffdbd0"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "Pretendard"],
+                        "body": ["Pretendard"],
+                        "label": ["Pretendard"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .headline-tight { letter-spacing: -0.02em; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e0e3e5; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<!-- Shell Layout Wrapper -->
+<div class="flex h-screen w-full">
+<!-- SideNavBar (Predicted Component) -->
+<aside class="hidden md:flex flex-col p-4 gap-2 h-screen w-64 bg-slate-50 border-r-0 font-['Pretendard'] text-sm font-medium">
+<div class="flex flex-col gap-1 mb-6 px-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" data-icon="cloud">cloud</span>
+</div>
+<span class="text-lg font-bold text-blue-700 tracking-tighter">CloudNote</span>
+</div>
+<span class="text-[10px] text-slate-400 mt-1">디지털 안식처</span>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-100 transition-all duration-300 rounded-lg active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+                    홈
+                </a>
+<!-- Active Tab: 내 노트 -->
+<a class="flex items-center gap-3 px-3 py-2 bg-white text-blue-600 shadow-sm rounded-lg font-semibold active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                    내 노트
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-100 transition-all duration-300 rounded-lg active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    설정
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-100 transition-all duration-300 rounded-lg active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="card_membership">card_membership</span>
+                    구독
+                </a>
+</nav>
+<div class="mt-auto flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-100 transition-all duration-300 rounded-lg active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    도움말
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col relative overflow-hidden">
+<!-- TopAppBar (Predicted Component Content) -->
+<header class="flex justify-between items-center px-6 h-16 w-full bg-white/80 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-bold text-slate-900 tracking-tighter headline-tight">내 노트</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 hover:text-blue-500 transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img alt="사용자 프로필" data-alt="professional male portrait with soft studio lighting and neutral background high quality photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDGgowczQtRY1-KA6R1QJ3lANRWxfssCN46DV5C8VrjJ4TgV_pJSItS64VmaQicpeJ1bc0FEvc8iMvLAfli96zRdbVqmHmro7vIewKS0Ijc4bUl4Tr6do1knvDS16BIPE-KclqbTx0U7ZlRDQAp6-BaZc7PrSqf9yVKAMZRl6vOVhWJ6iGHBsuixSJiYZ8LTXVa-XICDdS9Oe5Qa7S_YNfOaD2VqlRHYZ1Sz5g5YhsYLvvHYadueN09VhdG-tqMeGK5ow7yKKXvNaW"/>
+</div>
+</div>
+</header>
+<!-- Dual Panel Layout -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left List (30%) -->
+<section class="w-[30%] min-w-[320px] bg-surface-container-low border-r border-transparent flex flex-col">
+<div class="p-6">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl font-semibold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                            새 노트 작성
+                        </button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar px-4 pb-6 space-y-3">
+<!-- Note Item Active -->
+<div class="p-4 bg-surface-container-lowest rounded-xl shadow-sm border-l-4 border-primary cursor-pointer transition-all hover:translate-x-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface line-clamp-1">2024년 4분기 프로젝트 회의록</h3>
+<span class="text-[10px] text-outline font-medium shrink-0">14:20</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed mb-2">오늘 회의에서는 다음 분기의 주요 마일스톤과 디자인 시스템 업데이트 일정을 확정했습니다. 특히 모바일 사용성 개선에...</p>
+<div class="flex gap-1">
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed text-[9px] rounded-full font-bold">기획</span>
+</div>
+</div>
+<!-- Note Item -->
+<div class="p-4 hover:bg-surface-container-high rounded-xl cursor-pointer transition-all hover:translate-x-1 group">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-semibold text-on-surface-variant group-hover:text-on-surface line-clamp-1">아이디어: 개인 명상 앱 브랜딩</h3>
+<span class="text-[10px] text-outline shrink-0">어제</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed mb-2">심플하고 차분한 무드의 디자인. 파스텔 톤의 블루와 오프화이트 조합을 활용하여 사용자에게 평온함을...</p>
+<div class="flex gap-1">
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant text-[9px] rounded-full font-bold">브랜딩</span>
+</div>
+</div>
+<!-- Note Item -->
+<div class="p-4 hover:bg-surface-container-high rounded-xl cursor-pointer transition-all hover:translate-x-1 group">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-semibold text-on-surface-variant group-hover:text-on-surface line-clamp-1">주간 식단 리스트</h3>
+<span class="text-[10px] text-outline shrink-0">12.04</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed mb-2">월요일: 샐러드와 닭가슴살. 화요일: 파스타. 건강한 식습관을 위해 이번 주부터는 당분 섭취를 줄이기로...</p>
+<div class="flex gap-1">
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant text-[9px] rounded-full font-bold">일상</span>
+</div>
+</div>
+<!-- Note Item -->
+<div class="p-4 hover:bg-surface-container-high rounded-xl cursor-pointer transition-all hover:translate-x-1 group">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-semibold text-on-surface-variant group-hover:text-on-surface line-clamp-1">읽어볼 만한 책 리스트</h3>
+<span class="text-[10px] text-outline shrink-0">12.01</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed mb-2">디자인의 디자인 - 하라 켄야. 도널드 노먼의 디자인 심리학. 사용자 경험의 핵심 원칙들을 다시 한번...</p>
+</div>
+</div>
+</section>
+<!-- Right Detail (70%) -->
+<section class="flex-1 bg-surface-container-lowest overflow-y-auto custom-scrollbar">
+<!-- Note Detail View -->
+<div class="max-w-4xl mx-auto p-12">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-xs rounded-lg font-bold">기획</span>
+<span class="text-sm text-outline font-medium">|</span>
+<span class="text-sm text-outline">작성일: 2024년 12월 6일 14:20</span>
+</div>
+<h2 class="text-4xl font-bold text-on-surface mb-8 headline-tight leading-tight">2024년 4분기 프로젝트 회의록</h2>
+<div class="flex gap-2 mb-10">
+<span class="flex items-center gap-1 px-3 py-1 bg-surface-container text-on-surface-variant text-xs rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                                프로젝트
+                            </span>
+<span class="flex items-center gap-1 px-3 py-1 bg-surface-container text-on-surface-variant text-xs rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                                4분기
+                            </span>
+<span class="flex items-center gap-1 px-3 py-1 bg-surface-container text-on-surface-variant text-xs rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                                회의록
+                            </span>
+</div>
+<div class="prose prose-slate max-w-none text-on-surface-variant leading-relaxed space-y-6 text-lg">
+<p>오늘 회의에서는 다음 분기의 주요 마일스톤과 디자인 시스템 업데이트 일정을 확정했습니다. 특히 모바일 사용성 개선에 대한 심도 있는 논의가 있었습니다.</p>
+<h4 class="text-xl font-bold text-on-surface mt-8 mb-4">핵심 논의 사항</h4>
+<ul class="list-disc pl-5 space-y-2">
+<li>CloudNote의 새로운 디자인 시스템 'The Digital Sanctuary'의 전면 도입</li>
+<li>사용자 경험 강화를 위한 Bento Grid 레이아웃 적용 범위 확대</li>
+<li>모바일 웹 브라우저에서의 성능 최적화 (LCP 개선)</li>
+</ul>
+<h4 class="text-xl font-bold text-on-surface mt-8 mb-4">다음 단계</h4>
+<p>각 파트별로 상세 실행 계획을 다음 주 금요일까지 공유하기로 하였습니다. 디자인 팀은 토큰화된 컬러 시스템의 최종 검수를 진행할 예정입니다.</p>
+<div class="mt-12 p-8 rounded-2xl bg-surface-container-low border border-outline-variant/20 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="attachment">attachment</span>
+<span class="font-bold text-on-surface">첨부 파일 (1)</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-blue-50 rounded-lg">
+<span class="material-symbols-outlined text-blue-600" data-icon="description">description</span>
+</div>
+<span class="text-sm font-medium">Project_Milestones_Q4.pdf</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Floating Note Bar (CloudNote Specific) -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-xl px-4 z-20">
+<div class="bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl rounded-2xl p-2 flex items-center gap-2">
+<button class="p-3 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</button>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="format_bold">format_bold</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm placeholder-slate-400" placeholder="여기에 바로 메모를 남기세요..." type="text"/>
+<button class="p-3 bg-primary text-white rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal: Create New Note (Overlay) -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 flex items-center justify-center p-6 hidden">
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[921px]">
+<div class="p-8 border-b border-surface-container flex justify-between items-center">
+<h2 class="text-2xl font-bold text-on-surface tracking-tight">새 노트 작성</h2>
+<button class="text-slate-400 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="p-8 overflow-y-auto custom-scrollbar space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">제목</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface focus:ring-2 focus:ring-primary/20 transition-all placeholder-slate-400 font-semibold text-lg" placeholder="노트의 제목을 입력하세요" type="text"/>
+</div>
+<div class="flex gap-4">
+<div class="flex-1 space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">카테고리</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface-variant focus:ring-2 focus:ring-primary/20 transition-all">
+<option>기획</option>
+<option>브랜딩</option>
+<option>일상</option>
+<option>학습</option>
+<option>기타</option>
+</select>
+</div>
+<div class="flex-1 space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">태그 (쉼표로 구분)</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface-variant focus:ring-2 focus:ring-primary/20 transition-all placeholder-slate-400" placeholder="태그 입력" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">내용</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface-variant focus:ring-2 focus:ring-primary/20 transition-all placeholder-slate-400 resize-none" placeholder="당신의 생각을 자유롭게 적어보세요..." rows="8"></textarea>
+</div>
+</div>
+<div class="p-8 bg-surface-container-low flex justify-end gap-3">
+<button class="px-6 py-3 rounded-xl font-semibold text-on-surface-variant hover:bg-surface-container-high transition-colors">
+                    취소
+                </button>
+<button class="px-8 py-3 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity active:scale-[0.98]">
+                    노트 저장
+                </button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-16 bg-white flex items-center justify-around border-t-0 shadow-[0_-4px_10px_rgba(0,0,0,0.03)] z-30">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-medium">홈</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-blue-600 font-bold">
+<span class="material-symbols-outlined" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="text-[10px]">노트</span>
+</button>
+<div class="mb-6">
+<button class="w-12 h-12 bg-primary rounded-full shadow-lg shadow-primary/30 flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-medium">설정</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-[10px] font-medium">도움말</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CloudNote - 당신의 디지털 안식처</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e0e3e5",
+              "secondary-container": "#9bb4fe",
+              "primary-container": "#0066ff",
+              "on-primary-container": "#f8f7ff",
+              "error": "#ba1a1a",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c2c6d8",
+              "on-primary-fixed-variant": "#003fa4",
+              "tertiary-fixed-dim": "#ffb59d",
+              "secondary": "#425ca0",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1e",
+              "on-primary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#0054d6",
+              "secondary-fixed": "#dae1ff",
+              "inverse-primary": "#b3c5ff",
+              "on-tertiary-fixed-variant": "#832600",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed": "#390c00",
+              "background": "#f7f9fb",
+              "on-tertiary-container": "#fff6f4",
+              "on-secondary-container": "#294487",
+              "primary": "#0050cb",
+              "on-error": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "surface-dim": "#d8dadc",
+              "surface": "#f7f9fb",
+              "surface-bright": "#f7f9fb",
+              "outline": "#727687",
+              "tertiary-container": "#cc4204",
+              "inverse-surface": "#2d3133",
+              "on-secondary-fixed": "#001849",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#001849",
+              "tertiary": "#a33200",
+              "primary-fixed-dim": "#b3c5ff",
+              "on-surface-variant": "#424656",
+              "secondary-fixed-dim": "#b3c5ff",
+              "surface-container-high": "#e6e8ea",
+              "primary-fixed": "#dae1ff",
+              "on-background": "#191c1e",
+              "surface-container-low": "#f2f4f6",
+              "surface-variant": "#e0e3e5",
+              "on-secondary-fixed-variant": "#284386",
+              "surface-container": "#eceef0",
+              "tertiary-fixed": "#ffdbd0"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "Pretendard", "sans-serif"],
+              "body": ["Inter", "Pretendard", "sans-serif"],
+              "label": ["Inter", "Pretendard", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', 'Pretendard', sans-serif; }
+        .font-headline { font-family: 'Manrope', 'Pretendard', sans-serif; }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(0, 80, 203, 0.05) 0%, rgba(247, 249, 251, 0) 70%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-6 md:px-12 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold text-slate-900 dark:text-white tracking-tighter font-headline">CloudNote</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors duration-200 font-['Manrope','Pretendard'] antialiased tracking-tight text-sm" href="#">로그인</a>
+<button class="bg-primary hover:bg-surface-tint text-on-primary px-5 py-2 rounded-lg text-sm font-semibold transition-transform active:scale-95 shadow-sm">
+                    시작하기
+                </button>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full"></div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative overflow-hidden py-24 md:py-32 hero-gradient">
+<div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant/20 mb-8">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-xs font-semibold tracking-wide text-primary">AI-POWERED NOTES</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-8 font-headline leading-[1.1]">
+                    당신의 아이디어를<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">클라우드에</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
+                    어디서든 메모하고, AI가 정리해드립니다.<br class="hidden md:block"/>
+                    복잡한 생각들을 정제된 지식으로 바꾸는 가장 스마트한 방법.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-all">
+                        무료로 시작하기
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant/30 text-on-surface px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container-low transition-colors">
+                        기능 둘러보기
+                    </button>
+</div>
+<!-- Hero Visual -->
+<div class="mt-20 w-full max-w-5xl relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -right-10 w-60 h-60 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant/10 overflow-hidden">
+<img class="w-full aspect-[16/10] object-cover" data-alt="Modern clean dashboard interface showing organized digital notes in a minimalist layout with blue accents and glassmorphism elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPORffLVOHzlLLuV8Umj9_SBfJ2TPXNSwOHEi6eG9X5peGAcXyP6Qwmv6sNPFjCt162jpUs9ROeDMdd1Dd_xgDU2y2J2JBf5LeFTrJEhBlbKYiHy70-CwrQu7d4g5TQ1iPJ9LOoYsniKvgMGXz_u7_o43Gk7nkGMJy-gFyWPHT8SGzGpTP6FI-WGXK6rO_BCNn4O0TkPjD3hzYw2kLiT90evrZ_FL7ezELWwqhq0zDeiRcluoHgviPUxcuIrgwGT0fXcOa9Nu-Hljn"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Features (Conceptual Design) -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 bg-surface-container-lowest p-10 rounded-3xl flex flex-col justify-between overflow-hidden relative">
+<div>
+<h3 class="text-2xl font-bold font-headline mb-4">지능형 자동 태깅</h3>
+<p class="text-on-surface-variant">작성하는 순간 AI가 내용의 맥락을 파악하고 최적의 카테고리를 제안합니다.</p>
+</div>
+<div class="mt-8 flex gap-3 flex-wrap">
+<span class="px-4 py-2 bg-secondary-fixed text-on-secondary-fixed rounded-full text-sm font-medium">#전략기획</span>
+<span class="px-4 py-2 bg-primary-fixed text-on-primary-fixed rounded-full text-sm font-medium">#디자인패턴</span>
+<span class="px-4 py-2 bg-tertiary-fixed text-on-tertiary-fixed rounded-full text-sm font-medium">#시장분석</span>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary p-10 rounded-3xl text-on-primary flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-5xl mb-6" data-icon="cloud_sync" style="font-variation-settings: 'FILL' 1;">cloud_sync</span>
+<h3 class="text-2xl font-bold font-headline mb-4">실시간 동기화</h3>
+<p class="opacity-80">모든 기기에서 끊김 없는 작업을 보장합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold font-headline mb-4">심플한 요금 체계</h2>
+<p class="text-on-surface-variant">당신의 필요에 맞는 플랜을 선택하세요.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Free Plan -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl flex flex-col border border-outline-variant/10 hover:shadow-lg transition-shadow">
+<h4 class="text-xl font-bold mb-2">Free</h4>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold font-headline">0원</span>
+<span class="text-on-surface-variant text-sm">/월</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-8">개인적인 메모와 간단한 정리가 필요한 분들을 위해</p>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                무제한 노트 생성
+                            </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                기본 AI 요약 (월 5회)
+                            </li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant/50">
+<span class="material-symbols-outlined text-[20px]" data-icon="cancel">cancel</span>
+                                고급 검색 기능 미포함
+                            </li>
+</ul>
+<button class="w-full py-3 rounded-lg border border-primary text-primary font-bold hover:bg-surface-container-low transition-colors">무료로 시작</button>
+</div>
+<!-- Pro Plan -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl flex flex-col relative ring-2 ring-primary shadow-2xl shadow-primary/10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">Popular</div>
+<h4 class="text-xl font-bold mb-2">Pro</h4>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold font-headline">9,900원</span>
+<span class="text-on-surface-variant text-sm">/월</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-8">생산성을 극대화하고 싶은 프로 일잘러를 위해</p>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                무제한 AI 요약 및 분석
+                            </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                시맨틱 고급 검색
+                            </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                PDF 및 이미지 텍스트 추출
+                            </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                우선 순위 기술 지원
+                            </li>
+</ul>
+<button class="w-full py-3 rounded-lg bg-primary text-on-primary font-bold hover:bg-surface-tint shadow-lg transition-all">지금 시작하기</button>
+</div>
+<!-- Enterprise Plan -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl flex flex-col border border-outline-variant/10 hover:shadow-lg transition-shadow">
+<h4 class="text-xl font-bold mb-2">Enterprise</h4>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold font-headline">29,900원</span>
+<span class="text-on-surface-variant text-sm">/사용자</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-8">안전한 협업과 지식 공유가 필요한 팀을 위해</p>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                전용 팀 워크스페이스
+                            </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                엔터프라이즈급 보안 및 암호화
+                            </li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+                                통합 관리자 대시보드
+                            </li>
+</ul>
+<button class="w-full py-3 rounded-lg border border-outline text-on-surface font-bold hover:bg-surface-container-low transition-colors">문의하기</button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-6">
+<div class="max-w-5xl mx-auto bg-inverse-surface rounded-[2rem] p-12 md:p-20 text-center overflow-hidden relative">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+<div class="relative z-10">
+<h2 class="text-3xl md:text-5xl font-bold text-inverse-on-surface mb-8 font-headline leading-tight">생각의 속도에 맞춘 메모 경험,<br/>지금 CloudNote와 함께하세요.</h2>
+<button class="bg-primary hover:bg-surface-tint text-on-primary px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl transition-all hover:scale-105 active:scale-95">
+                        무료로 계정 만들기
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto border-t-0 bg-white dark:bg-slate-950">
+<div class="flex flex-col items-center justify-center gap-4 px-8 w-full max-w-7xl mx-auto">
+<div class="flex gap-6 mb-4">
+<a class="text-slate-500 hover:underline font-['Pretendard'] text-xs" href="#">이용약관</a>
+<a class="text-slate-500 hover:underline font-['Pretendard'] text-xs" href="#">개인정보처리방침</a>
+</div>
+<p class="text-slate-400 dark:text-slate-600 font-['Pretendard'] text-xs opacity-80">
+                © 2024 CloudNote. 모든 권리 보유.
+            </p>
+</div>
+</footer>
+</body></html>
