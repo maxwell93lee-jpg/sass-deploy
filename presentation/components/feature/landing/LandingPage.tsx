@@ -16,7 +16,7 @@ export default function LandingPage() {
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-8 font-headline leading-[1.1]">
               당신의 아이디어를<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">클라우드에</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">클라우드에!!!</span>
             </h1>
             <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
               어디서든 메모하고, AI가 정리해드립니다.<br className="hidden md:block" />
