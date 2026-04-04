@@ -16,8 +16,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cloudnote.service"),
   title: "CloudNote - 당신의 디지털 안식처",
   description: "AI가 당신의 아이디어를 맥락에 따라 정리하는 지능형 스마트 노트 플랫폼",
+  keywords: ["스마트 노트", "AI 메모", "지식 관리", "CloudNote", "지능형 요약"],
+  openGraph: {
+    title: "CloudNote - 아이디어를 지능적으로 정리하다",
+    description: "AI 자동 태깅과 요약으로 모든 아이디어를 가치 있는 지식으로 바꾸는 스마트 노트입니다.",
+    url: "https://cloudnote.service",
+    siteName: "CloudNote",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CloudNote 서비스 미리보기",
+      },
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CloudNote - 지능형 스마트 노트",
+    description: "AI가 맥락을 이해하고 정리해주는 당신의 디지털 안식처.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default async function RootLayout({
